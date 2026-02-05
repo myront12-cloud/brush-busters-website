@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brush Busters | Professional Acreage Mowing & Brush Clearing Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a3d0a 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-nav {
+            font-size: 1.8em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #4a7c2c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1em;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d5016 100%);
+            color: white;
+            padding: 180px 40px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74,124,44,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #ffffff 0%, #4a7c2c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .hero-icon {
+            font-size: 1em;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #1a3d0a;
+            padding: 18px 45px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(255,215,0,0.6);
+            background: #ffed4e;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid white;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1a3d0a;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            color: #2d5016;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.3em;
+            color: #555;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services h2 {
+            font-size: 2.5em;
+            color: #2d5016;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #e9ecef;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(45,80,22,0.2);
+            border-color: #4a7c2c;
+        }
+
+        .service-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #2d5016;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.1em;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: white;
+        }
+
+        .features-section h2 {
+            font-size: 2.5em;
+            color: #2d5016;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            background: #f0f7ed;
+            border-radius: 10px;
+            border-left: 5px solid #4a7c2c;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateX(5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-right: 20px;
+            color: #4a7c2c;
+        }
+
+        .feature-text {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Coverage Area */
+        .coverage {
+            background: linear-gradient(135deg, #4a7c2c 0%, #2d5016 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .coverage h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .counties {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .county {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 20px 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .county:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2d5016;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .before-after-container {
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .image-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .image-box {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .image-box.before {
+            border: 3px solid #dc3545;
+        }
+
+        .image-box.after {
+            border: 3px solid #28a745;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            padding: 30px;
+        }
+
+        .stars {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .testimonial-text {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2d5016;
+            font-size: 1em;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            color: #2d5016;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            font-size: 1.3em;
+            margin: 20px 0;
+        }
+
+        .contact-info a {
+            color: #4a7c2c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #2d5016;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a7c2c;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: #4a7c2c;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background: #2d5016;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a3d0a 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a1a1a;
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .counties {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav">🚜 BRUSH BUSTERS</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1><span class="hero-icon">🚜</span> BRUSH BUSTERS</h1>
+            <p>Professional Acreage Mowing & Brush Clearing</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Get Free Quote</a>
+                <a href="#services" class="btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container fade-in">
+            <h2>Transform Your Land Into Usable Space</h2>
+            <p>Expert land clearing services for properties of all sizes. From overgrown lots to expansive acreage, we tackle the toughest brush and deliver results you can count on.</p>
+            <p>With years of experience serving Northern California, Brush Busters has become the trusted name in professional land clearing. Our team combines powerful equipment with expert knowledge to transform your property quickly and efficiently.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container fade-in">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌾</div>
+                    <h3>Acreage Mowing</h3>
+                    <p>Large-scale mowing for fields, pastures, and open land. We handle properties of any size with professional-grade equipment.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌲</div>
+                    <h3>Brush Clearing</h3>
+                    <p>Complete removal of overgrown vegetation, brambles, and unwanted brush. Restore your property to pristine condition.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔥</div>
+                    <h3>Fire Prevention</h3>
+                    <p>Create defensible space around your property. Essential fire safety services for California landowners.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏞️</div>
+                    <h3>Land Reclamation</h3>
+                    <p>Turn unusable land into valuable space. Perfect for new construction, farming, or recreational use.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>Weed Eating & Trimming</h3>
+                    <p>Professional weed eating and edge trimming services. We handle hard-to-reach areas, fence lines, and detail work for a polished finish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container fade-in">
+            <h2>Why Choose Brush Busters?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Professional Equipment</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Free Estimates</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Experienced Crew</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Fast Turnaround</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Locally Owned</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Satisfaction Guaranteed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Area -->
+    <section class="coverage">
+        <div class="container fade-in">
+            <h2>Proudly Serving Northern California</h2>
+            <div class="counties">
+                <div class="county">📍 Sonoma County</div>
+                <div class="county">📍 Mendocino County</div>
+                <div class="county">📍 Bay Area</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container fade-in">
+            <h2>See The Transformation</h2>
+            <p class="section-subtitle">Real results from real clients across Northern California</p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="before-after-container">
+                        <div class="image-pair">
+                            <div class="image-box before">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='skyBefore' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23b8956a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23d4c19c;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='groundBefore' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238b7355;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23a0826d;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23skyBefore)' width='400' height='200'/%3E%3Crect fill='url(%23groundBefore)' y='200' width='400' height='200'/%3E%3Cg%3E%3Cpath d='M0,180 Q50,160 100,170 T200,165 T300,175 T400,160 L400,200 L0,200 Z' fill='%23967259' opacity='0.7'/%3E%3Cpath d='M20,190 L25,150 L30,190 Z' fill='%236b5d3f'/%3E%3Cpath d='M35,185 L40,155 L45,185 Z' fill='%237a6b4d'/%3E%3Cpath d='M50,180 L58,135 L66,180 Z' fill='%235d4e34'/%3E%3Cpath d='M80,185 L88,145 L96,185 Z' fill='%23897657'/%3E%3Cpath d='M110,175 L118,140 L126,175 Z' fill='%23695a3e'/%3E%3Cpath d='M140,190 L145,160 L150,190 Z' fill='%237d6e50'/%3E%3Cpath d='M160,180 L168,135 L176,180 Z' fill='%23998367'/%3E%3Cpath d='M190,185 L198,150 L206,185 Z' fill='%23665638'/%3E%3Cpath d='M220,175 L228,145 L236,175 Z' fill='%238a7659'/%3E%3Cpath d='M250,188 L255,155 L260,188 Z' fill='%236d5e42'/%3E%3Cpath d='M280,182 L288,140 L296,182 Z' fill='%237b6c4e'/%3E%3Cpath d='M310,190 L315,160 L320,190 Z' fill='%23987f63'/%3E%3Cpath d='M340,178 L348,138 L356,178 Z' fill='%23685939'/%3E%3Cpath d='M370,185 L378,150 L386,185 Z' fill='%238c7558'/%3E%3C/g%3E%3Cg%3E%3Cellipse cx='60' cy='185' rx='35' ry='25' fill='%235a4a32' opacity='0.6'/%3E%3Cpath d='M40,185 L45,165 L50,185 L55,170 L60,185 L65,168 L70,185 L75,172 L80,185' fill='none' stroke='%23756650' stroke-width='2'/%3E%3Cellipse cx='180' cy='175' rx='40' ry='30' fill='%236b5a3c' opacity='0.6'/%3E%3Cpath d='M150,175 L158,150 L166,175 L174,155 L182,175 L190,158 L198,175 L206,162 L210,175' fill='none' stroke='%23857465' stroke-width='2'/%3E%3Cellipse cx='320' cy='180' rx='38' ry='28' fill='%23624f35' opacity='0.6'/%3E%3Cpath d='M290,180 L298,158 L306,180 L314,162 L322,180 L330,165 L338,180 L346,168 L350,180' fill='none' stroke='%237a6952' stroke-width='2'/%3E%3C/g%3E%3Cg opacity='0.4'%3E%3Cpath d='M0,200 L10,220 L20,210 L30,225 L40,215 L50,230 L60,218 L70,228 L80,220 L90,232 L100,222 L110,235 L120,225 L130,238 L140,228 L150,240 L160,230 L170,235 L180,228 L190,238 L200,230 L210,240 L220,232 L230,242 L240,235 L250,245 L260,238 L270,243 L280,236 L290,244 L300,238 L310,246 L320,240 L330,248 L340,242 L350,246 L360,240 L370,248 L380,243 L390,250 L400,245 L400,400 L0,400 Z' fill='%23baa587'/%3E%3C/g%3E%3Ctext x='200' y='380' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EBEFORE%3C/text%3E%3C/svg%3E" alt="Before: Overgrown brush">
+                            </div>
+                            <div class="image-box after">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='skyAfter' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2387CEEB;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23B0E0F6;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='groundAfter' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234a7c2c;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%235d9e3a;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23skyAfter)' width='400' height='150'/%3E%3Ccircle cx='320' cy='60' r='35' fill='%23FFD700' opacity='0.8'/%3E%3Crect fill='url(%23groundAfter)' y='150' width='400' height='250'/%3E%3Cg%3E%3Cpath d='M0,148 Q100,145 200,150 T400,148 L400,155 L0,155 Z' fill='%233d6625' opacity='0.7'/%3E%3C/g%3E%3Cg%3E%3Crect x='0' y='155' width='400' height='3' fill='%2352823b' opacity='0.5'/%3E%3Crect x='0' y='162' width='400' height='2' fill='%2348752f' opacity='0.4'/%3E%3Crect x='0' y='170' width='400' height='2' fill='%234d7d34' opacity='0.4'/%3E%3Crect x='0' y='178' width='400' height='2' fill='%23507f36' opacity='0.3'/%3E%3C/g%3E%3Cg opacity='0.6'%3E%3Crect x='20' y='160' width='8' height='15' fill='%2338591f' /%3E%3Crect x='45' y='165' width='6' height='12' fill='%233d6325' /%3E%3Crect x='80' y='163' width='7' height='14' fill='%233a5d22' /%3E%3Crect x='120' y='167' width='6' height='11' fill='%233f6527' /%3E%3Crect x='160' y='162' width='8' height='13' fill='%23395c20' /%3E%3Crect x='200' y='166' width='7' height='12' fill='%233e6426' /%3E%3Crect x='240' y='164' width='6' height='14' fill='%233b5f23' /%3E%3Crect x='280' y='168' width='7' height='11' fill='%23406628' /%3E%3Crect x='320' y='163' width='8' height='13' fill='%23396021' /%3E%3Crect x='360' y='165' width='6' height='12' fill='%233c6224' /%3E%3C/g%3E%3Cg%3E%3Cpath d='M0,185 Q50,183 100,186 T200,184 T300,187 T400,185 L400,400 L0,400 Z' fill='%235d9e3a' opacity='0.3'/%3E%3C/g%3E%3Cpath d='M50,200 Q100,280 150,200 T250,200 T350,200' fill='none' stroke='%2366a844' stroke-width='1.5' opacity='0.4' stroke-dasharray='5,5'/%3E%3Ctext x='200' y='380' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EAFTER%3C/text%3E%3C/svg%3E" alt="After: Clean grass">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Brush Busters transformed our 5-acre property in just two days. What was once an impassable mess is now beautiful, usable land. Professional, efficient, and reasonably priced!"</p>
+                        <p class="testimonial-author">— Sarah M., Sonoma County</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="before-after-container">
+                        <div class="image-pair">
+                            <div class="image-box before">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='sky2Before' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23c49b6a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23d9b894;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='ground2Before' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%239d7a4f;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23b89168;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky2Before)' width='400' height='180'/%3E%3Crect fill='url(%23ground2Before)' y='180' width='400' height='220'/%3E%3Cg%3E%3Cpath d='M0,170 Q50,165 100,172 T200,168 T300,174 T400,169 L400,190 L0,190 Z' fill='%238b6f48' opacity='0.8'/%3E%3C/g%3E%3Cg%3E%3Cellipse cx='80' cy='165' rx='45' ry='35' fill='%23654d2f' opacity='0.7'/%3E%3Cpath d='M50,165 L55,135 L60,165 L65,140 L70,165 L75,138 L80,165 L85,142 L90,165 L95,136 L100,165 L105,144 L110,165' fill='none' stroke='%237a5f3d' stroke-width='3' opacity='0.9'/%3E%3Cellipse cx='220' cy='155' rx='50' ry='40' fill='%235c4328' opacity='0.7'/%3E%3Cpath d='M180,155 L188,120 L196,155 L204,125 L212,155 L220,118 L228,155 L236,122 L244,155 L252,128 L260,155' fill='none' stroke='%23745a38' stroke-width='3' opacity='0.9'/%3E%3Cellipse cx='340' cy='160' rx='48' ry='38' fill='%23694f30' opacity='0.7'/%3E%3Cpath d='M300,160 L308,128 L316,160 L324,132 L332,160 L340,125 L348,160 L356,130 L364,160 L372,135 L380,160' fill='none' stroke='%237d6341' stroke-width='3' opacity='0.9'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M30,180 L35,145 L40,180 L45,150 L50,180' fill='%23755632' opacity='0.8'/%3E%3Cpath d='M130,175 L138,130 L146,175 L154,135 L162,175' fill='%236b4e2e' opacity='0.8'/%3E%3Cpath d='M260,178 L268,140 L276,178 L284,145 L292,178' fill='%2378593a' opacity='0.8'/%3E%3Cpath d='M370,182 L375,152 L380,182 L385,157 L390,182' fill='%23715434' opacity='0.8'/%3E%3C/g%3E%3Cg opacity='0.5'%3E%3Cpath d='M0,190 L15,210 L30,200 L45,215 L60,205 L75,220 L90,210 L105,218 L120,208 L135,222 L150,212 L165,225 L180,215 L195,228 L210,218 L225,230 L240,220 L255,232 L270,222 L285,235 L300,225 L315,238 L330,228 L345,240 L360,230 L375,242 L390,232 L400,238 L400,400 L0,400 Z' fill='%23c9a57a'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M100,220 L110,250 L115,220 L125,255 L130,220' fill='none' stroke='%23946f47' stroke-width='2'/%3E%3Cpath d='M200,230 L210,265 L215,230 L225,268 L230,230' fill='none' stroke='%238a6942' stroke-width='2'/%3E%3Cpath d='M300,225 L310,258 L315,225 L325,262 L330,225' fill='none' stroke='%23917049' stroke-width='2'/%3E%3C/g%3E%3Cg opacity='0.7'%3E%3Ccircle cx='60' cy='50' r='15' fill='%23FFB366'/%3E%3Ccircle cx='60' cy='50' r='20' fill='%23FF9933' opacity='0.5'/%3E%3Ccircle cx='60' cy='50' r='25' fill='%23FF6600' opacity='0.3'/%3E%3C/g%3E%3Ctext x='200' y='380' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EBEFORE%3C/text%3E%3C/svg%3E" alt="Before: Fire hazard">
+                            </div>
+                            <div class="image-box after">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='sky2After' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2391C8E4;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23B8DAE8;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='ground2After' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23558B2F;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236BA83E;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky2After)' width='400' height='160'/%3E%3Ccircle cx='340' cy='50' r='30' fill='%23FFE066' opacity='0.9'/%3E%3Ccircle cx='340' cy='50' r='35' fill='%23FFD700' opacity='0.3'/%3E%3Cg%3E%3Cellipse cx='80' cy='100' rx='40' ry='50' fill='%2334691E' opacity='0.6'/%3E%3Cellipse cx='75' cy='95' rx='38' ry='48' fill='%233D7A24'/%3E%3Cellipse cx='220' cy='90' rx='45' ry='55' fill='%2338721F' opacity='0.6'/%3E%3Cellipse cx='215' cy='85' rx='43' ry='53' fill='%23428329'/%3E%3Cellipse cx='340' cy='105' rx='42' ry='52' fill='%23356B1E' opacity='0.6'/%3E%3Cellipse cx='335' cy='100' rx='40' ry='50' fill='%233F7C26'/%3E%3C/g%3E%3Crect fill='url(%23ground2After)' y='160' width='400' height='240'/%3E%3Cg%3E%3Cpath d='M0,158 Q100,155 200,160 T400,158 L400,165 L0,165 Z' fill='%23477A28' opacity='0.7'/%3E%3C/g%3E%3Cg%3E%3Crect x='0' y='165' width='400' height='3' fill='%235E913A' opacity='0.5'/%3E%3Crect x='0' y='172' width='400' height='2' fill='%23558530' opacity='0.4'/%3E%3Crect x='0' y='180' width='400' height='2' fill='%235A8C35' opacity='0.4'/%3E%3Crect x='0' y='188' width='400' height='2' fill='%235F9138' opacity='0.3'/%3E%3C/g%3E%3Cg opacity='0.5'%3E%3Crect x='25' y='170' width='6' height='12' fill='%23416F24' /%3E%3Crect x='55' y='175' width='5' height='10' fill='%2345762A' /%3E%3Crect x='95' y='173' width='6' height='11' fill='%23437226' /%3E%3Crect x='140' y='177' width='5' height='9' fill='%2346782B' /%3E%3Crect x='185' y='172' width='6' height='12' fill='%23427025' /%3E%3Crect x='230' y='176' width='5' height='10' fill='%2347792C' /%3E%3Crect x='275' y='174' width='6' height='11' fill='%23447327' /%3E%3Crect x='320' y='178' width='5' height='9' fill='%23487A2D' /%3E%3Crect x='365' y='173' width='6' height='12' fill='%23437126' /%3E%3C/g%3E%3Cg%3E%3Cpath d='M0,195 Q50,193 100,196 T200,194 T300,197 T400,195 L400,400 L0,400 Z' fill='%236BA83E' opacity='0.3'/%3E%3C/g%3E%3Cg%3E%3Crect x='40' y='240' width='80' height='60' fill='%238B7355' rx='3'/%3E%3Crect x='50' y='250' width='25' height='35' fill='%2365432F'/%3E%3Crect x='85' y='250' width='25' height='35' fill='%2365432F'/%3E%3Cpath d='M40,240 L60,220 L100,220 L120,240 Z' fill='%23A0522D'/%3E%3Cpath d='M60,220 L80,210 L100,220 Z' fill='%238B4513'/%3E%3C/g%3E%3Cpath d='M50,320 Q100,300 150,320 T250,320 T350,320' fill='none' stroke='%2372B347' stroke-width='1.5' opacity='0.4' stroke-dasharray='5,5'/%3E%3Cg opacity='0.6'%3E%3Ccircle cx='320' cy='280' r='8' fill='%234CAF50'/%3E%3Ccircle cx='340' cy='290' r='6' fill='%238BC34A'/%3E%3Ccircle cx='330' cy='300' r='7' fill='%239CCC65'/%3E%3C/g%3E%3Ctext x='200' y='380' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EAFTER%3C/text%3E%3C/svg%3E" alt="After: Defensible space">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"After the wildfires, we knew we needed to create defensible space. The Brush Busters team was incredible—thorough, knowledgeable, and gave us real peace of mind."</p>
+                        <p class="testimonial-author">— Michael R., Mendocino County</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="before-after-container">
+                        <div class="image-pair">
+                            <div class="image-box before">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='sky3Before' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a89378;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23c4ab8e;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='ground3Before' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23856d50;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%239a8268;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky3Before)' width='400' height='170'/%3E%3Crect fill='url(%23ground3Before)' y='170' width='400' height='230'/%3E%3Cg%3E%3Cpath d='M0,165 Q50,162 100,168 T200,164 T300,170 T400,166 L400,180 L0,180 Z' fill='%23765f44' opacity='0.8'/%3E%3C/g%3E%3Cg%3E%3Cellipse cx='100' cy='140' rx='60' ry='45' fill='%23564028' opacity='0.7'/%3E%3Cpath d='M55,145 L62,105 L70,145 L78,110 L86,145 L94,108 L102,145 L110,112 L118,145 L126,106 L134,145 L142,114 L150,145' fill='none' stroke='%236d5338' stroke-width='4' opacity='0.9'/%3E%3Cellipse cx='270' cy='135' rx='65' ry='50' fill='%234f3a24' opacity='0.7'/%3E%3Cpath d='M220,140 L228,95 L238,140 L248,100 L258,140 L268,92 L278,140 L288,98 L298,140 L308,94 L318,140' fill='none' stroke='%23685136' stroke-width='4' opacity='0.9'/%3E%3C/g%3E%3Cg%3E%3Cellipse cx='150' cy='110' rx='35' ry='55' fill='%234a3420' opacity='0.8'/%3E%3Crect x='145' y='80' width='10' height='60' fill='%235d4830' opacity='0.7'/%3E%3Cellipse cx='150' cy='75' rx='25' ry='20' fill='%233a5a2f' opacity='0.6'/%3E%3Cellipse cx='320' cy='120' rx='30' ry='50' fill='%23513b24' opacity='0.8'/%3E%3Crect x='315' y='95' width='10' height='55' fill='%23614d33' opacity='0.7'/%3E%3Cellipse cx='320' cy='90' rx='22' ry='18' fill='%23446129' opacity='0.6'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M20,175 L28,140 L36,175 L44,145 L52,175' fill='%236b5339' opacity='0.8'/%3E%3Cpath d='M180,170 L188,135 L196,170 L204,138 L212,170' fill='%23644c35' opacity='0.8'/%3E%3Cpath d='M350,178 L358,148 L366,178 L374,152 L382,178' fill='%236f5740' opacity='0.8'/%3E%3C/g%3E%3Cg opacity='0.4'%3E%3Cpath d='M0,180 L20,200 L40,190 L60,205 L80,195 L100,210 L120,200 L140,208 L160,198 L180,212 L200,202 L220,215 L240,205 L260,218 L280,208 L300,220 L320,210 L340,222 L360,212 L380,225 L400,215 L400,400 L0,400 Z' fill='%23b59a7e'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M80,220 L95,260 L100,220 L115,265 L120,220' fill='none' stroke='%23907558' stroke-width='2'/%3E%3Cpath d='M200,230 L215,275 L220,230 L235,278 L240,230' fill='none' stroke='%238c7054' stroke-width='2'/%3E%3Cpath d='M320,225 L335,268 L340,225 L355,272 L360,225' fill='none' stroke='%2394785c' stroke-width='2'/%3E%3C/g%3E%3Cg opacity='0.5'%3E%3Crect x='50' y='280' width='30' height='15' fill='%23786450' rx='2'/%3E%3Crect x='150' y='290' width='35' height='12' fill='%237a6652' rx='2'/%3E%3Crect x='250' y='285' width='28' height='18' fill='%23756148' rx='2'/%3E%3Crect x='330' y='295' width='32' height='14' fill='%237c6954' rx='2'/%3E%3C/g%3E%3Ctext x='200' y='380' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EBEFORE%3C/text%3E%3C/svg%3E" alt="Before: Raw land">
+                            </div>
+                            <div class="image-box after">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='sky3After' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2389C9E8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23B5DCF0;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='ground3After' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23A0826D;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23B89A85;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky3After)' width='400' height='160'/%3E%3Ccircle cx='330' cy='55' r='32' fill='%23FFE57F' opacity='0.95'/%3E%3Ccircle cx='330' cy='55' r='38' fill='%23FFD54F' opacity='0.3'/%3E%3Crect fill='url(%23ground3After)' y='160' width='400' height='240'/%3E%3Cg%3E%3Cpath d='M0,158 Q100,155 200,160 T400,158 L400,165 L0,165 Z' fill='%23917560' opacity='0.6'/%3E%3C/g%3E%3Cg%3E%3Crect x='0' y='165' width='400' height='4' fill='%239D8270' opacity='0.5'/%3E%3Crect x='0' y='175' width='400' height='3' fill='%23A68878' opacity='0.4'/%3E%3Crect x='0' y='185' width='400' height='3' fill='%23AA8C7C' opacity='0.3'/%3E%3C/g%3E%3Cg%3E%3Crect x='40' y='200' width='100' height='8' fill='%23795D48' opacity='0.7'/%3E%3Crect x='180' y='210' width='120' height='8' fill='%237A5E49' opacity='0.7'/%3E%3Crect x='320' y='205' width='70' height='8' fill='%23785C47' opacity='0.7'/%3E%3Crect x='50' y='240' width='90' height='8' fill='%237C6049' opacity='0.7'/%3E%3Crect x='200' y='250' width='110' height='8' fill='%237D614A' opacity='0.7'/%3E%3Crect x='330' y='245' width='60' height='8' fill='%237B5F48' opacity='0.7'/%3E%3C/g%3E%3Cg%3E%3Crect x='0' y='220' width='30' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='35' y='220' width='40' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='80' y='220' width='35' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='120' y='220' width='45' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='170' y='220' width='30' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='205' y='220' width='50' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='260' y='220' width='35' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='300' y='220' width='40' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='345' y='220' width='30' height='3' fill='%23C4A890' opacity='0.6'/%3E%3Crect x='380' y='220' width='20' height='3' fill='%23C4A890' opacity='0.6'/%3E%3C/g%3E%3Cg%3E%3Crect x='280' y='260' width='100' height='80' fill='%23E8E0D5' stroke='%239E9E9E' stroke-width='2'/%3E%3Crect x='290' y='270' width='35' height='50' fill='%2364B5F6' opacity='0.7'/%3E%3Cline x1='307.5' y1='270' x2='307.5' y2='320' stroke='%23424242' stroke-width='1'/%3E%3Cline x1='290' y1='295' x2='325' y2='295' stroke='%23424242' stroke-width='1'/%3E%3Crect x='340' y='270' width='30' height='50' fill='%238D6E63'/%3E%3Crect x='343' y='273' width='6' height='10' fill='%23757575'/%3E%3C/g%3E%3Cg opacity='0.4'%3E%3Crect x='60' y='300' width='25' height='15' fill='%23A68D78' rx='2'/%3E%3Crect x='120' y='310' width='30' height='12' fill='%23AA9080' rx='2'/%3E%3Crect x='180' y='305' width='22' height='18' fill='%23A38C76' rx='2'/%3E%3Crect x='230' y='315' width='28' height='14' fill='%23A89182' rx='2'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M20,350 L30,345 L40,350 L50,345 L60,350 L70,345 L80,350' fill='none' stroke='%23B59D88' stroke-width='2' opacity='0.5'/%3E%3Cpath d='M100,355 L110,350 L120,355 L130,350 L140,355' fill='none' stroke='%23B8A08A' stroke-width='2' opacity='0.5'/%3E%3C/g%3E%3Ctext x='200' y='380' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='%23ffffff' text-anchor='middle' opacity='0.9'%3EAFTER%3C/text%3E%3C/svg%3E" alt="After: Construction ready">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"We purchased raw land for our dream home and Brush Busters made it construction-ready. Their attention to detail and powerful equipment made all the difference. Highly recommend!"</p>
+                        <p class="testimonial-author">— Jennifer & Tom K., Bay Area</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container fade-in">
+            <h2>Get Your Free Quote Today</h2>
+            <div class="contact-info">
+                <p>Call us at <a href="tel:7077039095">(707) 703-9095</a></p>
+                <p>Email: <a href="mailto:Myront12@gmail.com">Myront12@gmail.com</a></p>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="property">Property Size (acres)</label>
+                    <input type="text" id="property" name="property">
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your project *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Request Free Quote</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Brush Busters. All rights reserved.</p>
+        <p>Professional Acreage Mowing & Brush Clearing Services</p>
+        <p>Serving Sonoma County, Mendocino County & Bay Area</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fade-in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you shortly to discuss your project and provide a free quote.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
